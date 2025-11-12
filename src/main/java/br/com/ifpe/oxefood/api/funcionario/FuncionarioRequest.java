@@ -27,6 +27,12 @@ public class FuncionarioRequest {
     private TipoFuncionario tipo;
 
     @NotBlank
+    private String email;
+
+    @NotBlank
+    private String password;
+
+    @NotBlank
     private String nome;
 
     private String cpf;
@@ -56,9 +62,19 @@ public class FuncionarioRequest {
 
     private String enderecoComplemento;
 
+    
+    public Usuario buildUsuario() {
+        return Usuario.builder()
+                .username(email)
+                .password(password)
+                .build();
+    }
+
+
     public Funcionario build() {
 
         return Funcionario.builder()
+                .usuario(buildUsuario())
                 .tipo(tipo)
                 .nome(nome)
                 .cpf(cpf)
