@@ -21,7 +21,7 @@ public class ProdutoRequest {
     private String codigo;
 
     @NotBlank(message = "O Nome é de preenchimento obrigatório")
-    @Length(min = 100, max = 100, message = "O campo deve ter entre {min} e {max} caracteres")
+    @Length(min = 10, max = 100, message = "O campo deve ter entre {min} e {max} caracteres")
     private String titulo;
 
     private String descricao;
