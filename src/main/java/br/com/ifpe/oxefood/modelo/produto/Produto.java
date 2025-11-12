@@ -46,4 +46,7 @@ public class Produto extends EntidadeAuditavel {
     @Column
     private Integer tempoEntregaMaximo;
 
+    @Column
+    private String imagem;
+
 }
