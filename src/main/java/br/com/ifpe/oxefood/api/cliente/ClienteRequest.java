@@ -3,7 +3,7 @@ package br.com.ifpe.oxefood.api.cliente;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import org.hibernate.validator.constraints.Email;
+import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -25,12 +25,11 @@ import lombok.NoArgsConstructor;
 public class ClienteRequest {
 
   @NotBlank(message = "O e-mail é de preenchimento obrigatório")
-    @Email
-    private String email;
+  @Email
+  private String email;
 
-    @NotBlank(message = "A senha é de preenchimento obrigatório")
-    private String password;
-
+  @NotBlank(message = "A senha é de preenchimento obrigatório")
+  private String password;
 
   @NotBlank(message = "O Nome é de preenchimento obrigatório")
   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
@@ -48,12 +47,12 @@ public class ClienteRequest {
   private String foneFixo;
 
   public Usuario buildUsuario() {
-       return Usuario.builder()
-           .username(email)
-           .password(password)
-           .roles(Arrays.asList(new Perfil(Perfil.ROLE_CLIENTE)))
-           .build();
-   }
+    return Usuario.builder()
+        .username(email)
+        .password(password)
+        .roles(Arrays.asList(new Perfil(Perfil.ROLE_CLIENTE)))
+        .build();
+  }
 
   public Cliente build() {
 
